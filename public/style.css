@@ -394,3 +394,9 @@
     strong {
       font-weight: bold;
     }
+    ion-icon {
+      visibility: initial;
+    }
+    .acoes .filled-heart {
+      color: red;
+    }

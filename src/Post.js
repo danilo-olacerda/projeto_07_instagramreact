@@ -1,4 +1,20 @@
+import React from "react";
+
 export default function Post(props) {
+
+    const [liked, setLiked] = React.useState("heart-outline");
+    const [likedColor, setLikedColor] = React.useState("")
+
+    function likeOnOff() {
+        if (liked==="heart-outline") {
+            setLiked("heart");
+            setLikedColor("filled-heart")
+        } else {
+            setLiked("heart-outline");
+            setLikedColor("")
+        }
+    }
+
     return (
         <div class="post">
             <div class="topo">
@@ -12,13 +28,13 @@ export default function Post(props) {
             </div>
 
             <div class="conteudo">
-                <img src={props.image} />
+                <img onClick={likeOnOff} src={props.image} />
             </div>
 
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon name={liked} onClick={likeOnOff} class={likedColor}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
